@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Back End harjoitus 2.2</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<h1>My friends</h1>
+	<div th:unless="${#lists.isEmpty(friendList)}">
+		<table th:each="friend: ${friendList}">
+			<tr>
+				<td th:text="${friend.name}" />
+			</tr>
+		</table>
+	</div>
+
+	<h1>Add new friend to list</h1>
+	<form action="#" th:action="@{/index}" th:object="${friend}" method="post">
+		<p>Name:<input type="text" th:field="*{name}" /></p>
+		<div th:if="${#fields.hasErrors('name')}" th:errors="*${name}">error</div>
+		<p><input type="submit" value="Submit" /></p>
+	</form>
+</body>
+
+</html>

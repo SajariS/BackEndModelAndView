@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Back End harjoitus 2.2</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<p>Welcome to the Haaga-Helia!</p>
+	<table th:each="student: ${studentList}">
+		<tr>
+			<td th:text="${student.firstName}" />
+			<td th:text="${student.lastName}" />
+		</tr>
+	</table>
+
+</body>
+
+</html>
